@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Login</title>
+    <style>
+      :root {
+    --orange: rgba(239, 91, 36, 255); /* color: var(--orange) */
+    --gray: #333333;
+  }
+  
+  
+  body {
+    background-color: var(--gray);
+    color: white;
+    font-family: 'Verdana', sans-serif;
+    text-align: center;
+  }
+  
+  h1 {
+    color: whitesmoke;
+    margin-top: 50px;
+  }
+  
+  h2 {
+    color: white;
+    margin-top: 50px;
+    font-size: 25px
+  }
+  
+  /* Button Hover Animation (Menu) */
+  .hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: var(--orange);
+  }
+  
+  .hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--orange);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .hover-underline-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  
+  /* Custom Buttons */
+  .button-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .button {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin: 10px;
+    font-size: 18px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px #9b9b9b;
+  }
+  
+  .button:hover {
+    background-color: gray;
+    color: white;
+  }
+
+  .entry {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  text-decoration: none;
+  margin: 10px;
+  font-size: 18px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px #9b9b9b;
+  }
+
+  /* Header Menu */
+  .menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #555;
+    border-radius: 40px;
+  }
+  
+  .menu li {
+    float: right;
+  }
+  
+  .menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .menu li a:hover {
+    background-color: rgb(52, 52, 52);
+  }
+    </style>
+  </head>
+  <body>
+    {% if error %}
+      <p>{{ error }}</p>
+    {% endif %}
+    <br><br>
+    <form method="POST">
+      <label>Username:</label><br>
+      <input type="text" name="username" required class="entry"><br>
+      <label>Password:</label><br>
+      <input type="password" name="password" required class="entry"><br>
+      <input type="submit" value="Login" class="button">
+    </form>
+  </body>
+</html>
